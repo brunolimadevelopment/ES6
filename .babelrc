@@ -1,0 +1,4 @@
+{
+    "presets": ["@babel/preset-env"], // @babel/preset-env Entende que o ES6 está sendo trabalhado no navegador.
+    "plugins": ["@babel/plugin-proposal-object-rest-spread"]
+}
