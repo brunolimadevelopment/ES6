@@ -1,38 +1,38 @@
 // EXEMPLO 01
 
 // CLASS List PAI 
-class List {
-    constructor() {
-        this.data = [];
-    }
+// class List {
+//     constructor() {
+//         this.data = [];
+//     }
 
-    add(data) {
-        this.data.push(data);
-        //console.log(this.data);
-    }
-}
-// CLASS TodoList FILHA
-class TodoList extends List{
-    constructor() {
-        super(); // chama o construct da classe pai
+//     add(data) {
+//         this.data.push(data);
+//         //console.log(this.data);
+//     }
+// }
+// // CLASS TodoList FILHA
+// class TodoList extends List{
+//     constructor() {
+//         super(); // chama o construct da classe pai
 
-        this.usuario = 'Bruno';
-    }
+//         this.usuario = 'Bruno';
+//     }
 
-    mostraUsuario() {
-        //console.log(this.usuario);
-        // Output Bruno
+//     mostraUsuario() {
+//         //console.log(this.usuario);
+//         // Output Bruno
 
-    }
-}
+//     }
+// }
 
-var MinhaLista = new TodoList();
+// var MinhaLista = new TodoList();
 
-document.getElementById('novotodo').onclick = function() {
-    MinhaLista.add('Novo todo');
-}
+// document.getElementById('novotodo').onclick = function() {
+//     MinhaLista.add('Novo todo');
+// }
 
-MinhaLista.mostraUsuario();
+// MinhaLista.mostraUsuario();
 
 //class TodoList2 {
     // constructor() {
@@ -54,11 +54,11 @@ MinhaLista.mostraUsuario();
 //TodoList2.addTodo();
 //TodoList2.addTodo();
 
-class Matematica {
-    static soma(a, b) {
-        return a + b;
-    }
-}
+// class Matematica {
+//     static soma(a, b) {
+//         return a + b;
+//     }
+// }
 // classe.metodo(value)
 // console.log(Matematica.soma(1,2)); 
 // Output 3
@@ -85,14 +85,14 @@ class Matematica {
 
 // Variaveis de scopo
 
-function teste(x) { // scopo 1
-    let y = 2;
+// function teste(x) { // scopo 1
+//     let y = 2;
 
-    if(x > 5) { // scopo 2
-        let y = 4; // reatribuição no valor de y
-        //console.log(x,y);
-    }
-}
+//     if(x > 5) { // scopo 2
+//         let y = 4; // reatribuição no valor de y
+//         //console.log(x,y);
+//     }
+// }
 
 //console.log(y);
 // Output: Uncaught ReferenceError: y is not defined
@@ -180,9 +180,9 @@ function teste(x) { // scopo 1
 // 2º coloca => antes do {}
 // 3º quando existe apenas 1 parâmetro, pode-se remover os parenteses do parâmetro
 // 4º quando retorna simplesmente apenas um resultado e não várias linhas, remove as {} e o return.
-const numbers = [1,3,4,5,8,10];
+// const numbers = [1,3,4,5,8,10];
 
-const x = numbers.map(item => item * 2);
+// const x = numbers.map(item => item * 2);
 
 // console.log(x);
 // Output: [2,6,8,10,16,20]
@@ -276,12 +276,12 @@ const x = numbers.map(item => item * 2);
 // console.log(resto);
 
 // Utilizando REST Operatior em array
-const arr = [1,2,3,4];
+// const arr = [1,2,3,4];
 
 // 1 é atribuido ao a
 // 2 é atribuido ao b
 // 3 e 4 é atribuido ao c
-const [ a, b, ...c] = arr;
+// const [ a, b, ...c] = arr;
 
 // console.log(a); Output: 1
 // console.log(b); Output: 2
@@ -430,3 +430,173 @@ const [ a, b, ...c] = arr;
 //console.log(sub(6,2));
 
 //alert('ES6');
+
+// const minhaPromise = () => new Promise((resolve, reject) => {
+//     setTimeout(() => { resolve('0K') }, 2000);
+// });
+
+// Apartir do momento em que definimos o async a uma função, essa função passa a ser uma promise,
+// podemos esperar o resultado da promise utilizando o .then() ou o await
+// async function executaPromise() {
+     // FORMA RECOMENDADA
+//     console.log(await minhaPromise()); 
+//     console.log(await minhaPromise()); 
+//     console.log(await minhaPromise()); 
+
+    // FORMA VERBOSA
+    // minhaPromise().then(response => {
+    //     console.log(response);
+
+    //     minhaPromise().then(response => {
+    //         console.log(response);
+            
+    //         minhaPromise().then(response => {
+    //             console.log(response);
+    //         })
+    //     })
+    // })
+    
+    //const response = await minhaPromise(); // a variavel response aguarde minhaPromese()
+
+    // console.log(response); 
+    // Output: Uncaught ReferenceError: precisa instalar uma lib para poder utilizar o Async/Await no babel
+    // O Async/Await é uma feature do ES8 e ainda não está integrado ao babel-preset-env
+// }
+
+// executaPromise(); // executaPromise() só será executada, quando a função minhaPromise() retorna algo.
+
+// EX:
+
+// const executaPromise = async () => {
+//     console.log(await minhaPromise()); // o await tem que está dentro do scopo do assync
+//     console.log(await minhaPromise()); // o await tem que está dentro do scopo do assync
+// };
+
+// executaPromise();
+
+// import axios from 'axios';
+
+// class Api {
+
+//     // transformamos o metodo statico em uma função assincrona com o async
+//     // o try e catch são utilizados no async/await para tratar erros
+//     static async getUserInfo(username) {
+
+//         try {
+
+//             const response = await axios.get(`https://api.github.com/users/${username}`);
+//             console.log(response);
+
+//         } catch (err) {
+            
+//             console.warn('Erro na API');
+//         }
+
+//     }
+// }
+
+// Api.getUserInfo('brunolimadevelopment'); // Output: { data: {...} }
+// Api.getUserInfo('brunolimadevelopment1220'); // Output: Erro na API
+import api from './api'
+
+class App {
+    constructor() {
+        this.repositories = [];
+
+        this.formEl  = document.getElementById('repo-form');
+        this.listEl  = document.getElementById('repo-list');
+        this.inputEl = document.querySelector('input[name=repository]');
+
+        this.registerHandlers();
+    }
+
+    // registra o evento
+    registerHandlers() {
+        this.formEl.onsubmit = event => this.addRepository(event);
+    }
+
+    // insere a mensagem carregando...
+    setLoading(loading = true) {
+        if (loading === true) {
+            let loadingEl = document.createElement('span');
+                loadingEl.appendChild(document.createTextNode('Carregando...'));
+                loadingEl.setAttribute('id', 'loading');
+
+            this.formEl.appendChild(loadingEl);
+
+        } else {
+            document.getElementById('loading').remove();
+        }
+    }
+
+
+    // add o repositorio no array
+    async addRepository(event) {
+        event.preventDefault();
+
+        const repoInput = this.inputEl.value;
+
+        // se o valor do input for igual a 0 pare a execução com o return.
+        if(repoInput.length === 0) 
+            return;
+
+            this.setLoading();
+
+            try { // o try funciona como o then() da promisse
+
+                const response = await api.get(`/repos/${repoInput}`);
+                
+                const { name, description, html_url, owner: { avatar_url } } = response.data;   
+                
+                this.repositories.push({
+                    name,
+                    description,
+                    avatar_url,
+                    html_url,
+                });
+                
+                this.inputEl.value = '';
+                
+                this.render();
+
+            } catch (err) {
+                alert('O repositório não existe!');
+            }
+
+            this.setLoading(false);
+
+    }
+
+    // apaga todo o conteudo da lista e renderizar do zero.
+    // percorre todo array mostrando cada item la dentro.
+    render() {
+        this.listEl.innerHTML = '';
+
+        // o forEach so percorre os items do array
+        this.repositories.forEach(repo => {
+
+            let imgEl = document.createElement('img');
+                imgEl.setAttribute('src', repo.avatar_url);
+            
+            let titleEl = document.createElement('strong');
+                titleEl.appendChild(document.createTextNode(repo.name));
+
+            let descriptionEl = document.createElement('p');
+                descriptionEl.appendChild(document.createTextNode(repo.description));
+
+            let linkEl = document.createElement('a');
+                linkEl.setAttribute('href', repo.html_url);
+                linkEl.appendChild(document.createTextNode('Acessar'));
+
+            let listItemEl = document.createElement('li');
+                listItemEl.appendChild(imgEl);
+                listItemEl.appendChild(titleEl);
+                listItemEl.appendChild(descriptionEl);
+                listItemEl.appendChild(linkEl);
+
+            this.listEl.appendChild(listItemEl);
+        });
+    }
+}
+
+new App();

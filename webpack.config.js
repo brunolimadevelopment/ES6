@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './src/main.js', // qual o arquivo principal
+    entry: ['@babel/polyfill', './src/main.js'], // add o "@babel/polyfill" para trabalhar com async/await no navegador e depois especifique qual o arquivo principal
     output: { // pra qual arquivo deve enviar o codigo convertido
         path: __dirname + '/public', // variavel global, que se refere ao diretorio do arquivo webpack.config.js que está na raiz.
         filename: 'bundle.js', // nome do arquivo

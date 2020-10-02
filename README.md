@@ -172,3 +172,6 @@ ___
 ## 15 - Exercise 📜
 
 [EXERCISE MODULE II](https://xesque.rocketseat.dev/platform/1566499288140.pdf) 
+
+
+## 16 - Async/await
