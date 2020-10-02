@@ -1,0 +1,20 @@
+Async/await
+- nova form de trabalhar com programação assincrona no js.
+
+- As promisses são formas de realizar ações de forma assincrona.
+- As promisses são muito utilizadas para fazer requisições a api/endpoints
+- O Async/await são features do ES8 então para funcionar no navegador é preciso instalar o 
+    
+    "@babel/plugin-transform-async-to-generator
+    "@babel/polyfill"
+
+- A lib Axios da acesso a uma api para trabalhar com requisições assincronas. a protocolos http, por exemplo outras APIs
+com servidores backend.
+
+por exemplo, para acessar a api do github utilizando o Axios
+
+    yarn add axios
+
+juntando o axios e o async/await poderemos trabalhar com as requisições assincronas a alguma api.
+
+    - Todas as funções do axios rertonam promisses por isso conseguimos trabalhar com a sintaxe do async/await
